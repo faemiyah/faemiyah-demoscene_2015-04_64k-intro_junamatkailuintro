@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\bsd_rand.c" />
+    <ClCompile Include="src\glsl_shader_source.cpp" />
+    <ClCompile Include="src\image_png.cpp" />
+    <ClCompile Include="src\intro.cpp" />
+    <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\bsd_rand.h" />
+    <ClInclude Include="src\dnload.h" />
+    <ClInclude Include="src\glsl_shader_source.hpp" />
+    <ClInclude Include="src\image_png.hpp" />
+    <ClInclude Include="src\intro.hpp" />
+    <ClInclude Include="src\SDLMain.h" />
+    <ClInclude Include="src\common.hpp" />
+    <ClInclude Include="src\delay.hpp" />
+    <ClInclude Include="src\env_gen.hpp" />
+    <ClInclude Include="src\filter.hpp" />
+    <ClInclude Include="src\font_data.hpp" />
+    <ClInclude Include="src\MIDI2Freq.h" />
+    <ClInclude Include="src\model_auto.h" />
+    <ClInclude Include="src\model_lentsikka.h" />
+    <ClInclude Include="src\oscillator.hpp" />
+    <ClInclude Include="src\parameters.h" />
+    <ClInclude Include="src\poly_handler.hpp" />
+    <ClInclude Include="src\reverb.hpp" />
+    <ClInclude Include="src\synth.hpp" />
+    <ClInclude Include="src\verbatim_array.hpp" />
+    <ClInclude Include="src\verbatim_bounding_volume.hpp" />
+    <ClInclude Include="src\verbatim_face.hpp" />
+    <ClInclude Include="src\verbatim_frame_buffer.hpp" />
+    <ClInclude Include="src\verbatim_height_map.hpp" />
+    <ClInclude Include="src\verbatim_image_rgb.hpp" />
+    <ClInclude Include="src\verbatim_mapping.hpp" />
+    <ClInclude Include="src\verbatim_matrix.hpp" />
+    <ClInclude Include="src\verbatim_mesh.hpp" />
+    <ClInclude Include="src\verbatim_object.hpp" />
+    <ClInclude Include="src\verbatim_program.hpp" />
+    <ClInclude Include="src\verbatim_realloc.hpp" />
+    <ClInclude Include="src\verbatim_shader.hpp" />
+    <ClInclude Include="src\verbatim_state.hpp" />
+    <ClInclude Include="src\verbatim_state_queue.hpp" />
+    <ClInclude Include="src\verbatim_synth.hpp" />
+    <ClInclude Include="src\verbatim_terrain.hpp" />
+    <ClInclude Include="src\verbatim_texture.hpp" />
+    <ClInclude Include="src\verbatim_threading.hpp" />
+    <ClInclude Include="src\verbatim_vector.hpp" />
+    <ClInclude Include="src\verbatim_vertex.hpp" />
+    <ClInclude Include="src\verbatim_vertex_buffer.hpp" />
+    <ClInclude Include="src\voice.hpp" />
+  </ItemGroup>
+</Project>
