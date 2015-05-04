@@ -31,7 +31,7 @@ add_definitions(-DUSE_LD)
 
 output_flags("DEBUG" on)
 
-add_subdirectory(src)
+include_directories("${PROJECT_SOURCE_DIR}/src")
 
 set(SOURCE_FILES
   "src/bsd_rand.c"
@@ -54,7 +54,7 @@ set(SOURCE_FILES
   "src/model_lentsikka.h"
   "src/oscillator.hpp"
   "src/parameters.h"
-  "src/poly_handletr.hpp"
+  "src/poly_handler.hpp"
   "src/reverb.hpp"
   "src/SDLMain.h"
   "src/synth.hpp"
@@ -81,7 +81,7 @@ set(SOURCE_FILES
   "src/verbatim_vector.hpp"
   "src/verbatim_vertex.hpp"
   "src/verbatim_vertex_buffer.hpp"
-  "src/verbatim_voice.hpp")
+  "src/voice.hpp")
 
 if (APPLE)
     list(APPEND SOURCE_FILES SDLMain.mm)
@@ -98,14 +98,20 @@ if(NOT ${MSVC})
     WORKING_DIRECTORY ..)
 endif()
 
-target_link_libraries(junamatkailuintro ${BOOST_PROGRAM_OPTIONS_LIBRARY})
-target_link_libraries(junamatkailuintro ${PNG_LIBRARY})
-target_link_libraries(junamatkailuintro ${SDL_LIBRARY})
 if(RASPBERRY_PI_FOUND)
   target_link_libraries(junamatkailuintro ${BCM_HOST_LIBRARY})
   target_link_libraries(junamatkailuintro ${EGL_LIBRARY})
   target_link_libraries(junamatkailuintro ${OPENGL_gl_LIBRARY})
 else()
-  target_link_libraries(junamatkailuintro ${OPENGL_gl_LIBRARY})
-  target_link_libraries(junamatkailuintro ${GLEW_LIBRARY})
+  target_link_libraries(junamatkailuintro general ${GLEW_LIBRARY})
 endif()
+if(${MSVC})
+  target_link_libraries(junamatkailuintro debug ${GLEW_LIBRARY_DEBUG})
+  target_link_libraries(junamatkailuintro debug ${PNG_LIBRARY_DEBUG})
+  target_link_libraries(junamatkailuintro debug ${SDL_LIBRARY_DEBUG})
+else()
+  target_link_libraries(junamatkailuintro ${BOOST_PROGRAM_OPTIONS_LIBRARY})
+endif()
+target_link_libraries(junamatkailuintro ${OPENGL_gl_LIBRARY})
+target_link_libraries(junamatkailuintro general ${PNG_LIBRARY})
+target_link_libraries(junamatkailuintro general ${SDL_LIBRARY})

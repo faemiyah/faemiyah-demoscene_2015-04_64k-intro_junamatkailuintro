@@ -1,5 +1,15 @@
+cmake_install.cmake
 CMakeCache.txt
 CMakeFiles/
 Makefile
-cmake_install.cmake
-orbital_bombardment
+junamatkailuintro
+junamatkailuintro.dir/
+Win32/
+*.exe
+*.ilk
+*.pdb
+*.sdf
+*.sln
+*.suo
+*.vcxproj
+*.vcxproj.filters
