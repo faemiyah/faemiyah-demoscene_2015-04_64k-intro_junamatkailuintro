@@ -1,9 +1,14 @@
-cmake_minimum_required(VERSION 2.6)
-
-project(stub)
+cmake_minimum_required(VERSION 2.8)
+set(CMAKE_CONFIGURATION_TYPES "Debug;Release")
+project(junamatkailuintro)
 
 enable_language(C)
 enable_language(CXX)
+
+cmake_policy(SET CMP0011 NEW)
+if(${MSVC})
+  cmake_policy(SET CMP0015 NEW)
+endif()
 
 include("defaults.cmake")
 
@@ -27,3 +32,80 @@ add_definitions(-DUSE_LD)
 output_flags("DEBUG" on)
 
 add_subdirectory(src)
+
+set(SOURCE_FILES
+  "src/bsd_rand.c"
+  "src/bsd_rand.h"
+  "src/common.hpp"
+  "src/delay.hpp"
+  "src/dnload.h"
+  "src/env_gen.hpp"
+  "src/filter.hpp"
+  "src/font_data.hpp"
+  "src/glsl_shader_source.cpp"
+  "src/glsl_shader_source.hpp"
+  "src/image_png.cpp"
+  "src/image_png.hpp"
+  "src/intro.cpp"
+  "src/intro.hpp"
+  "src/main.cpp"
+  "src/MIDI2Freq.h"
+  "src/model_auto.h"
+  "src/model_lentsikka.h"
+  "src/oscillator.hpp"
+  "src/parameters.h"
+  "src/poly_handletr.hpp"
+  "src/reverb.hpp"
+  "src/SDLMain.h"
+  "src/synth.hpp"
+  "src/verbatim_array.hpp"
+  "src/verbatim_bounding_volume.hpp"
+  "src/verbatim_color.hpp"
+  "src/verbatim_face.hpp"
+  "src/verbatim_frame_buffer.hpp"
+  "src/verbatim_height_map.hpp"
+  "src/verbatim_image_rgb.hpp"
+  "src/verbatim_mapping.hpp"
+  "src/verbatim_matrix.hpp"
+  "src/verbatim_mesh.hpp"
+  "src/verbatim_object.hpp"
+  "src/verbatim_program.hpp"
+  "src/verbatim_realloc.hpp"
+  "src/verbatim_shader.hpp"
+  "src/verbatim_state.hpp"
+  "src/verbatim_state_queue.hpp"
+  "src/verbatim_synth.hpp"
+  "src/verbatim_terrain.hpp"
+  "src/verbatim_texture.hpp"
+  "src/verbatim_threading.hpp"
+  "src/verbatim_vector.hpp"
+  "src/verbatim_vertex.hpp"
+  "src/verbatim_vertex_buffer.hpp"
+  "src/verbatim_voice.hpp")
+
+if (APPLE)
+    list(APPEND SOURCE_FILES SDLMain.mm)
+    add_executable(junamatkailuintro MACOSX_BUNDLE ${SOURCE_FILES})
+else (APPLE)
+    add_executable(junamatkailuintro ${SOURCE_FILES})
+endif (APPLE)
+
+if(NOT ${MSVC})
+  add_custom_command(
+    OUTPUT dnload.h
+    DEPENDS intro.cpp
+    COMMAND sh refresh.sh
+    WORKING_DIRECTORY ..)
+endif()
+
+target_link_libraries(junamatkailuintro ${BOOST_PROGRAM_OPTIONS_LIBRARY})
+target_link_libraries(junamatkailuintro ${PNG_LIBRARY})
+target_link_libraries(junamatkailuintro ${SDL_LIBRARY})
+if(RASPBERRY_PI_FOUND)
+  target_link_libraries(junamatkailuintro ${BCM_HOST_LIBRARY})
+  target_link_libraries(junamatkailuintro ${EGL_LIBRARY})
+  target_link_libraries(junamatkailuintro ${OPENGL_gl_LIBRARY})
+else()
+  target_link_libraries(junamatkailuintro ${OPENGL_gl_LIBRARY})
+  target_link_libraries(junamatkailuintro ${GLEW_LIBRARY})
+endif()
