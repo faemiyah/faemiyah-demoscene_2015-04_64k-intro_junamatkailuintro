@@ -84,7 +84,7 @@ set(SOURCE_FILES
   "src/voice.hpp")
 
 if (APPLE)
-    list(APPEND SOURCE_FILES SDLMain.mm)
+    list(APPEND SOURCE_FILES "src/SDLMain.mm")
     add_executable(junamatkailuintro MACOSX_BUNDLE ${SOURCE_FILES})
 else (APPLE)
     add_executable(junamatkailuintro ${SOURCE_FILES})
