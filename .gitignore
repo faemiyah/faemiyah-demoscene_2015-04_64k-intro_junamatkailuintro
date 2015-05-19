@@ -22,3 +22,4 @@ Win32/
 *.suo
 *.vcxproj
 *.vcxproj.filters
+*.vcxproj.user
