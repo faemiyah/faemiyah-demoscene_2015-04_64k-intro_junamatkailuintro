@@ -6,6 +6,12 @@ Makefile
 junamatkailuintro
 junamatkailuintro.dir/
 Release/
+src/*.bin
+src/*.ld
+src/*.o
+src/*.stripped
+src/*.S
+src/*.unprocessed
 Win32/
 *.exe
 *.ilk
