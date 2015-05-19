@@ -9,8 +9,8 @@ Release/
 src/*.bin
 src/*.ld
 src/*.o
-src/*.stripped
 src/*.S
+src/*.stripped
 src/*.unprocessed
 Win32/
 *.exe
