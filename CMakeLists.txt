@@ -24,7 +24,7 @@ if(RASPBERRY_PI_FOUND)
   set(OPENGL_gl_LIBRARY "GLESv2")
 else()
   find_opengl(TRUE)
-  find_glew(TRUE STATIC)
+  find_glew(TRUE)
 endif()
 
 add_definitions(-DUSE_LD)
