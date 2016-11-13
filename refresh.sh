@@ -16,7 +16,7 @@ if test ! -f src/dnload.h ; then
   touch src/dnload.h
 fi
 
-python "${DNLOAD}" -I/opt/local/include src/intro.cpp -v
+python "${DNLOAD}" -a sdl1 src/intro.cpp -v
 if test $? -ne 0 ; then
   echo "${0}: regenerating symbols failed"
   exit 1

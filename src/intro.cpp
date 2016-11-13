@@ -3206,10 +3206,8 @@ void GlobalContainer::fillState(State *op) const
       float lentsikka_zrot = mix(LENTSIKKA_ROT1, LENTSIKKA_ROT2, fi);
       Vector3 lentsikka_pos = mix(LENTSIKKA_POS1, LENTSIKKA_POS2, fi);
 
-#if defined(USE_LD)
-      std::cout << "camera pos: " << camera_pos << " || fi: " << fi << " || lentsikka zrot: " <<
-        lentsikka_zrot << " || lentsikka pos: " << lentsikka_pos << std::endl;
-#endif
+      //std::cout << "camera pos: " << camera_pos << " || fi: " << fi << " || lentsikka zrot: " <<
+      //  lentsikka_zrot << " || lentsikka pos: " << lentsikka_pos << std::endl;
 
       op->addObject(m_lentsikka, &m_program_default, Matrix4::rotation_zxy(-0.1f, -1.1f, lentsikka_zrot,
             lentsikka_pos));
