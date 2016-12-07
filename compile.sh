@@ -13,7 +13,7 @@ if test ! -f "${DNLOAD}" ; then
 fi
 
 #python "${DNLOAD}" -c src/intro.cpp -o src/junamatkailuintro -lc -ldl -lgcc -lEGL -lGLESv2 -v -m dlfcn
-python "${DNLOAD}" -a sdl1 -c src/intro.cpp -o src/junamatkailuintro -lbcm_host -lc -lgcc -lm -lEGL -lGLESv2 -lSDL -v -m hash
+python "${DNLOAD}" -c src/intro.cpp -o src/junamatkailuintro -lbcm_host -lc -lgcc -lm -lEGL -lGLESv2 -lSDL -v -m hash
 if test $? -ne 0 ; then
   echo "${0}: compilation failed"
   exit 1
